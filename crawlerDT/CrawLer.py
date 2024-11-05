@@ -8,7 +8,7 @@ base_url = 'https://mapstudy.vn/danh-muc/khoa-hoc/0/tat-ca'
 wb = xw.Book()  
 tep = wb.sheets[0]  # Chọn tệp đầu tiên
 
-# Ghi tiêu đề cột
+# tạo cột hàng
 tep.range('A1').value = 'Tiêu đề'
 tep.range('B1').value = 'Giáo viên'
 tep.range('C1').value = 'Link chi tiết'
@@ -44,7 +44,7 @@ for trang in range(1, so_trang + 1):
             giao_vien = khoa_hoc.find('span', class_='').text.strip()
             link = khoa_hoc.find('a')['href']
             
-
+            # lưu trữ dữ liệu
             tep.range(f'A{row_idx}').value = tieu_de
             tep.range(f'B{row_idx}').value = giao_vien
             tep.range(f'C{row_idx}').value = link
